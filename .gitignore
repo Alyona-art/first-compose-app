@@ -1,0 +1,61 @@
+# Gradle files
+.gradle/
+build/
+
+# Android Studio / IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Local configuration files
+local.properties
+
+# Android specific files
+*.apk
+*.ap_
+*.dex
+*.class
+*.jar
+*.so
+*.log
+*.tgz
+*.bak
+
+# Android emulator files
+*.avd/
+*.emulator/
+
+# Generated files
+*.hprof
+*.out
+*.err
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Kotlin build
+*.kotlin_metadata
+
+# IntelliJ specific
+*.swp
+*.idea/
+
+# Jetpack Compose-specific (if any)
+compose-gen/
+*.usf
+
+# Firebase Crashlytics
+firebase-crashlytics/
+
+# Gradle wrapper
+.gradle-wrapper/
+
+# Native build directories
+.externalNativeBuild/
+.cxx/
+
+# Screenshots or capture folders
+/captures/
