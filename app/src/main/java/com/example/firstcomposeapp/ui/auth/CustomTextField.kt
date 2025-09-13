@@ -44,7 +44,9 @@ fun CustomTextField(
             onValueChange = onValueChange,
             label = { Text(label) },
             singleLine = true,
-            visualTransformation = if (isHidden && !passwordVisible) PasswordVisualTransformation() else VisualTransformation.None,
+            visualTransformation = if (isHidden && !passwordVisible) PasswordVisualTransformation(
+                '*'
+            ) else VisualTransformation.None,
             trailingIcon = {
                 val painter = painterResource(
                     if (passwordVisible) R.drawable.ic_hide else R.drawable.ic_show

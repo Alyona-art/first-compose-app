@@ -1,4 +1,3 @@
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -86,7 +85,7 @@ fun AuthScreen() {
                     login = it
                     loginError = validateLogin(login)
                 },
-                label = "Login",
+                label = "Логин",
                 error = loginError
             )
             CustomTextField(
@@ -94,9 +93,8 @@ fun AuthScreen() {
                 onValueChange = {
                     password = it
                     passwordError = validatePassword(password)
-                    Log.d("TAG", "VALIDATE PASS $passwordError")
                 },
-                label = "Password",
+                label = "Пароль",
                 error = passwordError,
                 isHidden = true
             )
@@ -111,7 +109,7 @@ fun AuthScreen() {
                     disabledContentColor = Grey800
                 ),
                 shape = RoundedCornerShape(size = 4.dp),
-                contentPadding = PaddingValues(horizontal = 12.dp, vertical = 5.dp),
+                contentPadding = PaddingValues(horizontal = 18.dp, vertical = 8.dp),
                 modifier = Modifier
                     .wrapContentSize()
                     .align(Alignment.End)
