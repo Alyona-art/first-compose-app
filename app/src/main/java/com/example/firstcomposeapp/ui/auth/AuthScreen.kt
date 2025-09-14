@@ -40,7 +40,6 @@ import com.example.firstcomposeapp.ui.theme.Grey800
 import com.example.firstcomposeapp.ui.theme.Grey900
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true)
 @Composable
 fun AuthScreen() {
     var login by remember { mutableStateOf("") }
@@ -121,4 +120,10 @@ fun AuthScreen() {
             }
         }
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun AuthScreenPreview() {
+    AuthScreen()
 }
