@@ -21,9 +21,11 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -42,11 +44,17 @@ import com.example.firstcomposeapp.ui.theme.Grey900
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AuthScreen() {
-    var login by remember { mutableStateOf("") }
-    var password by remember { mutableStateOf("") }
+    var login by rememberSaveable { mutableStateOf("") }
+    var password by rememberSaveable { mutableStateOf("") }
 
     var loginError: String? by remember { mutableStateOf(null) }
     var passwordError: String? by remember { mutableStateOf(null) }
+
+    val isButtonEnabled by remember {
+        derivedStateOf {
+            login.isNotEmpty() && password.isNotEmpty() && loginError == null && passwordError == null
+        }
+    }
 
     Box {
         Row(
@@ -100,7 +108,7 @@ fun AuthScreen() {
             Spacer(modifier = Modifier.height(if (loginError != null || passwordError != null) 12.dp else 16.dp))
             Button(
                 onClick = {},
-                enabled = login.isNotEmpty() && password.isNotEmpty() && loginError == null && passwordError == null,
+                enabled = isButtonEnabled,
                 colors = ButtonDefaults.buttonColors(
                     containerColor = Grey100,
                     contentColor = Grey900,
