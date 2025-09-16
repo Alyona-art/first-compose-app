@@ -97,7 +97,7 @@ fun AuthScreen() {
                 error = passwordError,
                 isHidden = true
             )
-            Spacer(modifier = Modifier.height(if (loginError != null || passwordError != null) 8.dp else 32.dp))
+            Spacer(modifier = Modifier.height(if (loginError != null || passwordError != null) 12.dp else 16.dp))
             Button(
                 onClick = {},
                 enabled = login.isNotEmpty() && password.isNotEmpty() && loginError == null && passwordError == null,
