@@ -75,7 +75,7 @@ fun AuthScreen() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 12.dp),
+                .padding(horizontal = PaddingHorizontal.small),
             verticalArrangement = Arrangement.Center
         ) {
             CustomTextField(
@@ -108,7 +108,10 @@ fun AuthScreen() {
                     disabledContentColor = Grey800
                 ),
                 shape = RoundedCornerShape(size = 4.dp),
-                contentPadding = PaddingValues(horizontal = 18.dp, vertical = 8.dp),
+                contentPadding = PaddingValues(
+                    horizontal = PaddingHorizontal.medium,
+                    vertical = PaddingVertical.medium
+                ),
                 modifier = Modifier
                     .wrapContentSize()
                     .align(Alignment.End)

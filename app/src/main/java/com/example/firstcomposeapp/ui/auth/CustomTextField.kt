@@ -92,7 +92,10 @@ fun CustomTextField(
                 error,
                 style = CustomTypography.labelMedium,
                 color = Red500,
-                modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp)
+                modifier = Modifier.padding(
+                    horizontal = PaddingHorizontal.small,
+                    vertical = PaddingVertical.small
+                )
             )
     }
 }

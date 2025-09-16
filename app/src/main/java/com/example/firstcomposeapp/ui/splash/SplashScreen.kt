@@ -47,7 +47,7 @@ fun SplashScreen(
                 contentDescription = "Logo",
                 modifier = Modifier.size(48.dp)
             )
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(PaddingVertical.large))
             Text(
                 "NYTIMES",
                 color = Grey100,
