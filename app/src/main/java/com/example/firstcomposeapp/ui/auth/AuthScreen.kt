@@ -34,6 +34,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.firstcomposeapp.R
+import com.example.firstcomposeapp.ui.auth.ValidationResult
 import com.example.firstcomposeapp.ui.auth.validateLogin
 import com.example.firstcomposeapp.ui.auth.validatePassword
 import com.example.firstcomposeapp.ui.theme.BackgroundColor
@@ -100,7 +101,16 @@ fun AuthScreen() {
                         value = login,
                         onValueChange = {
                             login = it
-                            loginError = validateLogin(login)
+                            val validationResult = validateLogin(login)
+                            loginError = when (validationResult) {
+                                is ValidationResult.Valid -> {
+                                    null
+                                }
+
+                                is ValidationResult.Invalid -> {
+                                    validationResult.reason
+                                }
+                            }
                         },
                         label = stringResource(R.string.login),
                         error = loginError
@@ -109,7 +119,16 @@ fun AuthScreen() {
                         value = password,
                         onValueChange = {
                             password = it
-                            passwordError = validatePassword(password)
+                            val validationResult = validatePassword(password)
+                            passwordError = when (validationResult) {
+                                is ValidationResult.Valid -> {
+                                    null
+                                }
+
+                                is ValidationResult.Invalid -> {
+                                    validationResult.reason
+                                }
+                            }
                         },
                         label = stringResource(R.string.password),
                         error = passwordError,

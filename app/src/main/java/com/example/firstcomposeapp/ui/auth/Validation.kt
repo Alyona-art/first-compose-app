@@ -1,24 +1,29 @@
 package com.example.firstcomposeapp.ui.auth
 
-fun validateLogin(login: String): String? {
-    if (login.isNotEmpty() && login.any { it in 'A'..'Z' || it in 'a'..'z' }) {
-        return "Логин пользователя должен быть на кириллице"
-    }
-    if (login.isNotEmpty() && login != "Логин_Юзера") {
-        return "Неверный логин"
-    }
-    return null
+sealed class ValidationResult {
+    object Valid : ValidationResult()
+    data class Invalid(val reason: String) : ValidationResult()
 }
 
-fun validatePassword(password: String): String? {
+fun validateLogin(login: String): ValidationResult {
+    if (login.isNotEmpty() && login.any { it in 'A'..'Z' || it in 'a'..'z' }) {
+        return ValidationResult.Invalid("Логин пользователя должен быть на кириллице")
+    }
+    if (login.isNotEmpty() && login != "Логин_Юзера") {
+        return ValidationResult.Invalid("Неверный логин")
+    }
+    return ValidationResult.Valid
+}
+
+fun validatePassword(password: String): ValidationResult {
     if (password.isNotEmpty() && !password.any { it in 'A'..'Z' || it in 'a'..'z' }) {
-        return "Пароль должен содержать хотя бы одну латинскую букву"
+        return ValidationResult.Invalid("Пароль должен содержать хотя бы одну латинскую букву")
     }
     if (password.isNotEmpty() && !password.any { it.isDigit() }) {
-        return "Пароль должен содержать хотя бы одну цифру"
+        return ValidationResult.Invalid("Пароль должен содержать хотя бы одну цифру")
     }
     if (password.isNotEmpty() && password.length < 6) {
-        return "Пароль должен содержать не менее 6 символов"
+        return ValidationResult.Invalid("Пароль должен содержать не менее 6 символов")
     }
-    return null
+    return ValidationResult.Valid
 }
