@@ -16,6 +16,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.firstcomposeapp.R
@@ -57,7 +58,7 @@ fun SplashScreen(
                     )
                     Spacer(modifier = Modifier.height(PaddingVertical.large))
                     Text(
-                        "NYTIMES",
+                        stringResource(R.string.app_title),
                         color = Grey100,
                         style = CustomTypography.titleMedium,
                         modifier = Modifier.padding(vertical = 3.dp)

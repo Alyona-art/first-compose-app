@@ -30,6 +30,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.firstcomposeapp.R
@@ -78,7 +79,7 @@ fun AuthScreen() {
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        "NYTIMES",
+                        stringResource(R.string.app_title),
                         color = Grey100,
                         style = CustomTypography.titleMedium
                     )
@@ -101,7 +102,7 @@ fun AuthScreen() {
                             login = it
                             loginError = validateLogin(login)
                         },
-                        label = "Логин",
+                        label = stringResource(R.string.login),
                         error = loginError
                     )
                     CustomTextField(
@@ -110,7 +111,7 @@ fun AuthScreen() {
                             password = it
                             passwordError = validatePassword(password)
                         },
-                        label = "Пароль",
+                        label = stringResource(R.string.password),
                         error = passwordError,
                         isHidden = true
                     )
@@ -134,7 +135,7 @@ fun AuthScreen() {
                             .align(Alignment.End)
                     ) {
                         Text(
-                            "ВОЙТИ",
+                            stringResource(R.string.login_button),
                             style = CustomTypography.headlineLarge,
                         )
                     }
