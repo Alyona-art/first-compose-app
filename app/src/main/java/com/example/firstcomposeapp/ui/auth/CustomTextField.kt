@@ -1,6 +1,7 @@
+package com.example.firstcomposeapp.ui.auth
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
@@ -12,13 +13,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.unit.dp
 import com.example.firstcomposeapp.R
 import com.example.firstcomposeapp.ui.theme.CustomTypography
 import com.example.firstcomposeapp.ui.theme.Grey100
@@ -44,7 +42,9 @@ fun CustomTextField(
             onValueChange = onValueChange,
             label = { Text(label) },
             singleLine = true,
-            visualTransformation = if (isHidden && !passwordVisible) PasswordVisualTransformation() else VisualTransformation.None,
+            visualTransformation = if (isHidden && !passwordVisible) PasswordVisualTransformation(
+                '*'
+            ) else VisualTransformation.None,
             trailingIcon = {
                 val painter = painterResource(
                     if (passwordVisible) R.drawable.ic_hide else R.drawable.ic_show
@@ -60,37 +60,35 @@ fun CustomTextField(
                         )
                     }
             },
+            isError = error != null,
+            supportingText = {
+                if (error != null) {
+                    Text(
+                        error,
+                        style = CustomTypography.labelMedium,
+                        color = Red500
+                    )
+                } else null
+            },
             textStyle = CustomTypography.bodyMedium,
             colors = TextFieldDefaults.colors(
                 focusedContainerColor = Color.Transparent,
                 unfocusedContainerColor = Color.Transparent,
-                focusedIndicatorColor = Color.Transparent,
-                unfocusedIndicatorColor = Color.Transparent,
+                errorContainerColor = Color.Transparent,
+                focusedIndicatorColor = Grey800,
+                unfocusedIndicatorColor = Grey800,
+                errorIndicatorColor = Red600,
                 focusedLabelColor = Grey700,
                 unfocusedLabelColor = Grey600,
+                errorLabelColor = Grey700,
                 focusedTextColor = Color.White,
                 unfocusedTextColor = Color.White,
-                cursorColor = Color.White
+                errorTextColor = Color.White,
+                cursorColor = Color.White,
+                errorCursorColor = Color.White
             ),
             modifier = Modifier
-                .fillMaxWidth()
-                .drawBehind {
-                    val strokeWidth = 1.dp.toPx()
-                    val y = size.height - strokeWidth / 2
-                    drawLine(
-                        color = if (error != null) Red600 else Grey800,
-                        start = Offset(0f, y),
-                        end = Offset(size.width, y),
-                        strokeWidth = strokeWidth
-                    )
-                },
+                .fillMaxWidth(),
         )
-        if (error != null)
-            Text(
-                error,
-                style = CustomTypography.labelMedium,
-                color = Red500,
-                modifier = Modifier.padding(horizontal = 12.dp, vertical = 4.dp)
-            )
     }
 }
