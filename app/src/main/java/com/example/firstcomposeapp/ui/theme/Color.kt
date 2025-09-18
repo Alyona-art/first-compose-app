@@ -2,6 +2,8 @@ package com.example.firstcomposeapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
+val BackgroundColor = Color.Black
+
 val Grey900 = Color(0xFF1A1A1A)
 val Grey800 = Color(0xFF343434)
 val Grey700 = Color(0xFF4E4E4E)
