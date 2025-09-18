@@ -11,7 +11,7 @@ fun validateLogin(login: String): String? {
 }
 
 fun validatePassword(password: String): String? {
-    if (password.isNotEmpty() && !password.any { it.isLetter() && it in 'A'..'Z' || it in 'a'..'z' }) {
+    if (password.isNotEmpty() && !password.any { it in 'A'..'Z' || it in 'a'..'z' }) {
         return "Пароль должен содержать хотя бы одну латинскую букву"
     }
     if (password.isNotEmpty() && !password.any { it.isDigit() }) {
