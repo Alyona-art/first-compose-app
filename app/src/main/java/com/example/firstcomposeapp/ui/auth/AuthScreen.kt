@@ -1,3 +1,5 @@
+package com.example.firstcomposeapp.ui.auth
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -34,15 +36,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.firstcomposeapp.R
-import com.example.firstcomposeapp.ui.auth.ValidationResult
-import com.example.firstcomposeapp.ui.auth.validateLogin
-import com.example.firstcomposeapp.ui.auth.validatePassword
 import com.example.firstcomposeapp.ui.theme.BackgroundColor
 import com.example.firstcomposeapp.ui.theme.CustomTypography
 import com.example.firstcomposeapp.ui.theme.Grey100
 import com.example.firstcomposeapp.ui.theme.Grey600
 import com.example.firstcomposeapp.ui.theme.Grey800
 import com.example.firstcomposeapp.ui.theme.Grey900
+import com.example.firstcomposeapp.ui.theme.PaddingHorizontal
+import com.example.firstcomposeapp.ui.theme.PaddingVertical
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

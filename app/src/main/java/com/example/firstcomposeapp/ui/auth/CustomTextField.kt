@@ -1,3 +1,5 @@
+package com.example.firstcomposeapp.ui.auth
+
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Icon

@@ -1,3 +1,5 @@
+package com.example.firstcomposeapp.ui.splash
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -24,6 +26,7 @@ import com.example.firstcomposeapp.ui.theme.BackgroundColor
 import com.example.firstcomposeapp.ui.theme.CustomTypography
 import com.example.firstcomposeapp.ui.theme.Grey100
 import com.example.firstcomposeapp.ui.theme.Grey600
+import com.example.firstcomposeapp.ui.theme.PaddingVertical
 import kotlinx.coroutines.delay
 
 @Composable

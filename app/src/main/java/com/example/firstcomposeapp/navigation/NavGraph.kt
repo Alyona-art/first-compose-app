@@ -1,10 +1,10 @@
 package com.example.firstcomposeapp.navigation
 
-import AuthScreen
-import SplashScreen
+import com.example.firstcomposeapp.ui.splash.SplashScreen
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.remember
+import com.example.firstcomposeapp.ui.auth.AuthScreen
 
 @Composable
 fun AppNavigation() {
